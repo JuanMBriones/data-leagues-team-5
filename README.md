@@ -1,3 +1,5 @@
 # data-leagues-team-5
--Begoña Montes Gómez
+
+## Equipo:
+- Begoña Montes Gómez
 - José Emiliano Herrera Velázquez
