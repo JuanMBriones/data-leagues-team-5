@@ -5,3 +5,4 @@
 - José Emiliano Herrera Velázquez
 - Gabriel Sánchez Athie
 - Christopher Román Jaimes
+- Juan Manuel Garcia Briones
