@@ -1,11 +1,11 @@
 # data-leagues-team-5
 
 ## Equipo:
-- Begoña Montes Gómez
-- José Emiliano Herrera Velázquez
-- Gabriel Sánchez Athie
-- Christopher Román Jaimes
-- Juan Manuel Garcia Briones
+:space_invader: Begoña Montes Gómez
+:space_invader: José Emiliano Herrera Velázquez
+:space_invader: Gabriel Sánchez Athie
+:space_invader: Christopher Román Jaimes
+:space_invader: Juan Manuel Garcia Briones
 
 <div align="center">
 	<br>
