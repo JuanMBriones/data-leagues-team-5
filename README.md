@@ -10,7 +10,7 @@
 <div align="center">
 	<br>
 	<a href="https://raw.githubusercontent.com/sindresorhus/css-in-readme-like-wat/main/readme.md">
-		<img src="header.svg" width="800" height="400" alt="Click to see the source">
+		<img src="https://s3.amazonaws.com/josg/insights/data-chart.gif" width="800" height="400" alt="Data science">
 	</a>
 	<br>
 </div>
