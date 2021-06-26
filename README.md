@@ -4,3 +4,4 @@
 - Begoña Montes Gómez
 - José Emiliano Herrera Velázquez
 - Gabriel Sánchez Athie
+- Christopher Román Jaimes
