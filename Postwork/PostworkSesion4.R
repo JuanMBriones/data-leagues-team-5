@@ -50,8 +50,13 @@ desv_est <- sqrt(sum((medias - media_muestral) ** 2) / length(medias))
 hist_bootstrap <- ggplot() + 
   geom_histogram(aes(x = medias), color="black") + 
   geom_vline(xintercept = media_muestral, size=1, color="darkred") +
-  theme_ft_rc() +
   ylab("Frecuencia") +
   ggtitle("Histograma de las medias")
 hist_bootstrap
+
+t.test(medias)
+
+
+# resulta que el p-value < 2.2e-16, por lo que se rechaza la hipótesis de que el promedio es 1
+
 
