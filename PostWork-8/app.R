@@ -14,7 +14,7 @@ data <-  read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/
 
 ui <- fluidPage(
   
-  dashboardPage(
+  dashboardPage(skin = "green",
     
     dashboardHeader(title = "Postwork 8 - equipo 5"),
     
@@ -42,7 +42,7 @@ ui <- fluidPage(
         ),
         tabItem(tabName = "imag",
                 fluidRow(
-                  titlePanel(h3("Postwork 3")),
+                  titlePanel(h3("Probabilidad de Goles")),
                   img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-1.png?raw=true"),
                   img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-2.png?raw=true"),
                   img(src="https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-3.png?raw=true")
@@ -51,7 +51,7 @@ ui <- fluidPage(
         ),
         tabItem(tabName = "imagenes",
                 fluidRow(
-                  titlePanel(h3("Momios")),
+                  titlePanel(h3("Factor de Ganancia")),
                   img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_maximo.png?raw=true"),
                   img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_promedio.png?raw=true")
                   
@@ -59,7 +59,7 @@ ui <- fluidPage(
         ),
         tabItem(tabName = "DATATABLE",
                 fluidRow(        
-                  titlePanel(h3("Data Table")),
+                  titlePanel(h3("Tabla")),
                   dataTableOutput ("tabla")
                 )
         )
