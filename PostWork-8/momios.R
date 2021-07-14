@@ -2,40 +2,16 @@ library(fbRanks)
 library(dplyr)
 library(ggplot2)
 
-setwd("C:/Users/lilol/Desktop/Bedu/Data Science/Equipo 5 - PostWork/PostWork-8/csv/")
-
-u1011 <- "https://www.football-data.co.uk/mmz4281/1011/SP1.csv"
-u1112 <- "https://www.football-data.co.uk/mmz4281/1112/SP1.csv"
-u1213 <- "https://www.football-data.co.uk/mmz4281/1213/SP1.csv"
-u1314 <- "https://www.football-data.co.uk/mmz4281/1314/SP1.csv"
-u1415 <- "https://www.football-data.co.uk/mmz4281/1415/SP1.csv"
-u1516 <- "https://www.football-data.co.uk/mmz4281/1516/SP1.csv"
-u1617 <- "https://www.football-data.co.uk/mmz4281/1617/SP1.csv"
-u1718 <- "https://www.football-data.co.uk/mmz4281/1718/SP1.csv"
-u1819 <- "https://www.football-data.co.uk/mmz4281/1819/SP1.csv"
-u1920 <- "https://www.football-data.co.uk/mmz4281/1920/SP1.csv"
-
-download.file(url = u1011, destfile ="SP1-1011.csv", mode = "wb")
-download.file(url = u1112, destfile ="SP1-1112.csv", mode = "wb")
-download.file(url = u1213, destfile ="SP1-1213.csv", mode = "wb")
-download.file(url = u1314, destfile ="SP1-1314.csv", mode = "wb")
-download.file(url = u1415, destfile ="SP1-1415.csv", mode = "wb")
-download.file(url = u1516, destfile ="SP1-1516.csv", mode = "wb")
-download.file(url = u1617, destfile ="SP1-1617.csv", mode = "wb")
-download.file(url = u1718, destfile ="SP1-1718.csv", mode = "wb")
-download.file(url = u1819, destfile ="SP1-1819.csv", mode = "wb")
-download.file(url = u1920, destfile ="SP1-1920.csv", mode = "wb")
-
-d1011 <- read.csv("SP1-1011.csv")
-d1112 <- read.csv("SP1-1112.csv")
-d1213 <- read.csv("SP1-1213.csv")
-d1314 <- read.csv("SP1-1314.csv")
-d1415 <- read.csv("SP1-1415.csv")
-d1516 <- read.csv("SP1-1516.csv")
-d1617 <- read.csv("SP1-1617.csv")
-d1718 <- read.csv("SP1-1718.csv")
-d1819 <- read.csv("SP1-1819.csv")
-d1920 <- read.csv("SP1-1920.csv")
+d1011 <- read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/SP1-1011.csv")
+d1112 <- read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/SP1-1112.csv")
+d1213 <- read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/SP1-1213.csv")
+d1314 <- read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/SP1-1314.csv")
+d1415 <- read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/SP1-1415.csv")
+d1516 <- read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/SP1-1516.csv")
+d1617 <- read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/SP1-1617.csv")
+d1718 <- read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/SP1-1718.csv")
+d1819 <- read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/SP1-1819.csv")
+d1920 <- read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/SP1-1920.csv")
 
 d1011S <- select(d1011, Date:FTAG, BbMx.2.5:BbAv.2.5.1)
 d1112S <- select(d1112, Date:FTAG, BbMx.2.5:BbAv.2.5.1)
@@ -83,8 +59,7 @@ data <- select(d1020S, date, home.team, home.score, away.team, away.score:Avg.2.
 head(data, n = 2L); tail(data, n = 2L)
 
 md <- data %>% select(date:away.score)
-write.csv(md, "match.data.csv", row.names = FALSE)
-df <- create.fbRanks.dataframes(scores.file = "match.data.csv")
+df <- create.fbRanks.dataframes(scores.file = "https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/match.data.csv")
 teams <- df$teams; scores <- df$scores
 
 head(teams, n = 2L); dim(teams); head(scores, n = 2L); dim(scores)

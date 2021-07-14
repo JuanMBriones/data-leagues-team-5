@@ -3,6 +3,7 @@
 library(shiny)
 library(dplyr)
 library(ggplot2)
+data <-  read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/match.data.csv", header = T)
 
 ui <- fluidPage(
   
@@ -24,23 +25,23 @@ ui <- fluidPage(
     
     tabPanel("Factor de Ganancia",  
              h3("Factor de ganancia Maximo"),
-             img(src = "momio_maximo.png", 
+             img(src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_maximo.png?raw=true", 
                  height = 350, width = 550),
              h3("Factor de ganancia Promedio"),
-             img( src = "momio_promedio.png", 
+             img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_promedio.png?raw=true", 
                   height = 350, width = 550)
              
     ),
     
     tabPanel("Probabilidad Goles",  
              h3("Probabilidad goles equipo local"),
-             img(src = "Sesion-03-plt-1.png", 
+             img(src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-1.png?raw=true", 
                  height = 450, width = 550),
              h3("Probabilidad goles equipo visitante"),
-             img( src = "Sesion-03-plt-2.png", 
+             img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-2.png?raw=true", 
                   height = 450, width = 550),
              h3("Probabilidades conjuntas"),
-             img( src = "Sesion-03-plt-3.png", 
+             img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-3.png?raw=true", 
                   height = 450, width = 550)
     ), 
     
@@ -58,7 +59,6 @@ server <- function(input, output) {
   )
 
   output$output_plot <- renderPlot({
-    data <-  read.csv("match.data.csv", header = T)
     x <- data[,input$x]
     if(input$x=="home.score"){
       data %>% ggplot(aes(x, fill = home.team)) + 
