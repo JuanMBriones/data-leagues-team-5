@@ -123,14 +123,17 @@ conjunta_goles["Cociente"] = conjunta_goles["Probabilidad"]/conjunta_goles["Prod
 # Menciona en cuáles casos le parece razonable suponer que los cocientes de 
 # la tabla en el punto 1, son iguales a 1 (en tal caso tendríamos independencia 
 # de las variables aleatorias X y Y).
+# Sea X el número de goles de Casa y Y el número de goles de Vis.
+# Debemos ver si P(X = x, Y = y)/(P(X = x)P(Y = y)) = 1 para cada x,y así
+# Se debe hacer una prueba para cada par (x,y)
 library(rsample)
 library(comprehenr)
 library(data.table)
 set.seed(25)
 
 str(datos)
-n_muestras = 100
-# Bootstrap con 100 muestras 
+n_muestras = 10000
+# Bootstrap con 10000 muestras 
 (datos_boot <- bootstraps(datos, times = n_muestras))
 
 # Una muestra del bootstrap
