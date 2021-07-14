@@ -11,9 +11,7 @@ library(lubridate)
 
 #' Exportamos los datos de la carpeta y lo almacenamos en un
 #' Data frame para poder cambiar el formato de fecha con mutate
-setwd("c:/Users/gabri/Documents/BEDU/FASE II/Postwork/")
-
-datos <- read.csv("match.data.csv")
+datos <- read.csv("https://raw.githubusercontent.com/JuanMBriones/data-leagues-team-5/Gabo/match.data.csv")
 
 head(datos)
 dim(datos)
@@ -26,6 +24,7 @@ datos <- mutate(datos, date = as.Date(date, "%Y-%m-%d"))
 #' Data frame y por medio de un for creamos la suma de cada fila de goles.
 #'
 #' Seguido de esto usamos cbind para unir la nueva columna de suma a nuestro DF.
+
 suma <- as.data.frame(c(1:3800))
 tail(suma)
 
@@ -43,6 +42,7 @@ datos <- cbind(datos,suma)
 #' Ahora utilizamos la paquetería de Lubridate para agrupar las fechas por meses
 #' y por medio de su función summarise nos permite sacar el promedio para cada agrupación.
 #' en este caso los agrupamos por mes, por lo que nos devuelve los promedios de goles por mes.
+
 promedios <- datos %>%
   group_by(fecha = floor_date(datos$date, unit = "month")) %>%
   summarise(prom_goles = mean(sumagoles))
@@ -50,11 +50,13 @@ promedios <- datos %>%
 #3
 #' Creamos una serie de tiempo que vaya del primer valor al valor 96 que equivale a
 #' la fecha final 2019-12-01
+
 promedios.ts <- ts(promedios$prom_goles,start = 1,end = 96)
 tail(promedios.ts)
 
 #4
 #' Finalmente, graficamos nuestro resultado, donde x es igual a las fechas y Y a los promedios.
+
 plot(promedios$fecha[1:96],promedios.ts, type = "l",
      xlab = "Fechas", ylab = "Promedios", main = "Gráfica de Promedios")
 
