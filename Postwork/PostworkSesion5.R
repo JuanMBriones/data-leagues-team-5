@@ -1,4 +1,4 @@
-setwd("BEDU/ProgramacionYEstadisticaConR/Sesion2/Files/PostworkSesion2/")
+setwd("Files/")
 
 # Se importan las librerías necesarias.
 

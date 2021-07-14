@@ -44,7 +44,7 @@ bar_casa <- ggplot(prob_casa, aes(x=goles, y=Freq)) +
 # 2.2- Un gráfico de barras para las probabilidades marginales estimadas del 
 #    número de goles que anota el equipo visitante.
 
-bar_casa <- ggplot(prob_visitante, aes(x=goles, y=Freq)) +
+bar_visitante <- ggplot(prob_visitante, aes(x=goles, y=Freq)) +
   geom_bar(stat='identity') +
   ylab("Frecuencia") +
   theme_dark() +

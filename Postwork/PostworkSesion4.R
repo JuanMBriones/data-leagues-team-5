@@ -47,6 +47,12 @@ bootstrap <- replicate(n=10000, sample(df_cociente$cociente, replace = TRUE))
 medias <- apply(bootstrap, MARGIN = 2, FUN = mean)
 desv_est <- sqrt(sum((medias - media_muestral) ** 2) / length(medias))
 
+bootstrap <- replicate(n = 1000, 
+                       sample(df_cociente$Gols_casa, 
+                              df_cociente$Gols_vis,
+                              replace = TRUE))
+
+
 hist_bootstrap <- ggplot() + 
   geom_histogram(aes(x = medias), color="black") + 
   geom_vline(xintercept = media_muestral, size=1, color="darkred") +
