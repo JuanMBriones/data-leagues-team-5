@@ -1,63 +1,85 @@
-# Postwork 8 - Equipo 5
+#install.packages("shinydashboard")
+#install.packages("dplyr")
+#install.packages("DT")
+#install.packages("ggplot2")
+#install.packages("shiny")
 
-library(shiny)
+library(shinydashboard)
 library(dplyr)
+library(DT)
 library(ggplot2)
+library(shiny)
+
 data <-  read.csv("https://github.com/JuanMBriones/data-leagues-team-5/raw/fred/PostWork-8/csv/match.data.csv", header = T)
 
 ui <- fluidPage(
   
-
-  titlePanel("Postwork 8 - Equipo 5"),
-  
-
-  sidebarPanel(
-    p("Goles por equipo"), 
-    selectInput("x", "Seleccione equipo local o visitante",
-                choices = c("Goles Local"= "home.score","Goles Visitante" = "away.score")),
-  ),
-  
-  
-  mainPanel(tabsetPanel(              
-    tabPanel("Goles",   
-             plotOutput("output_plot"),
+  dashboardPage(
+    
+    dashboardHeader(title = "Postwork 8 - equipo 5"),
+    
+    dashboardSidebar(
+      
+      sidebarMenu(
+        menuItem("Goles por equipo", tabName = "Dashboard", icon = icon("bar-chart-o")),
+        menuItem("Factor de Ganancia", tabName = "imagenes", icon = icon("usd", lib = "glyphicon")),
+        menuItem("Probabilidad Goles", tabName = "imag", icon = icon("flash", lib = "glyphicon")),
+        menuItem("Tabla", tabName = "DATATABLE", icon = icon("table"))
+      )
+      
     ),
     
-    tabPanel("Factor de Ganancia",  
-             h3("Factor de ganancia Maximo"),
-             img(src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_maximo.png?raw=true", 
-                 height = 350, width = 550),
-             h3("Factor de ganancia Promedio"),
-             img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_promedio.png?raw=true", 
-                  height = 350, width = 550)
-             
-    ),
-    
-    tabPanel("Probabilidad Goles",  
-             h3("Probabilidad goles equipo local"),
-             img(src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-1.png?raw=true", 
-                 height = 450, width = 550),
-             h3("Probabilidad goles equipo visitante"),
-             img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-2.png?raw=true", 
-                  height = 450, width = 550),
-             h3("Probabilidades conjuntas"),
-             img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-3.png?raw=true", 
-                  height = 450, width = 550)
-    ), 
-    
-    tabPanel("Table Match", dataTableOutput("data_table"))          
+    dashboardBody(
+      
+      tabItems( 
+        tabItem(tabName = "Dashboard",
+                fluidRow(
+                  titlePanel("Grafico de barras"),
+                  selectInput("x", "Seleccione equipo local o visitante",
+                              choices = c("Goles Local"= "home.score","Goles Visitante" = "away.score")),
+                  box(plotOutput("output_plot"))
+                )
+        ),
+        tabItem(tabName = "imag",
+                fluidRow(
+                  titlePanel(h3("Postwork 3")),
+                  img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-1.png?raw=true"),
+                  img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-2.png?raw=true"),
+                  img(src="https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/Sesion-03-plt-3.png?raw=true")
+                  
+                )
+        ),
+        tabItem(tabName = "imagenes",
+                fluidRow(
+                  titlePanel(h3("Momios")),
+                  img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_maximo.png?raw=true"),
+                  img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_promedio.png?raw=true")
+                  
+                )
+        ),
+        tabItem(tabName = "DATATABLE",
+                fluidRow(        
+                  titlePanel(h3("Data Table")),
+                  dataTableOutput ("tabla")
+                )
+        )
+        
+      )
+    )
   )
-  )
-) 
+)
 
-server <- function(input, output) {
+
+server<-function(input, output){
   
-  datasetImput <- reactive(
-    switch(input$dataset, 
-           "away.team" = away.team, 
-           "home.team" = home.team)
-  )
-
+  datos<-eventReactive(input$equipo,{
+    return(data)
+  })
+  
+  output$tabla<-renderDataTable({
+    data.frame(data)
+  })
+  
   output$output_plot <- renderPlot({
     x <- data[,input$x]
     if(input$x=="home.score"){
@@ -75,16 +97,11 @@ server <- function(input, output) {
     }
   })
   
-  output$table <- renderTable({ 
-   data.frame(data)
-  })
   
-  output$data_table <- renderDataTable({data}, 
-                                       options = list(aLengthMenu = c(5,25,50),
-                                                      iDisplayLength = 5))
-  
-  
-} 
+}
 
-shinyApp(ui = ui, server = server)
+
+shinyApp(ui=ui,server = server)            
+
+
 
