@@ -63,7 +63,7 @@ server <- function(input, output) {
     if(input$x=="home.score"){
       data %>% ggplot(aes(x, fill = home.team)) + 
         geom_bar() + 
-        facet_wrap("away.team", scales = "free") +
+        facet_wrap("home.team", scales = "free") +
         labs(x =input$x, y = "Goles Anotados") + 
         ylim(0,76)
     }else{
