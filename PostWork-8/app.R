@@ -53,7 +53,9 @@ ui <- fluidPage(
                 fluidRow(
                   titlePanel(h3("Factor de Ganancia")),
                   img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_maximo.png?raw=true"),
-                  img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_promedio.png?raw=true")
+                  img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/momio_promedio.png?raw=true"),
+                  img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/histograma_momio_maximo.png?raw=true"),
+                  img( src = "https://github.com/JuanMBriones/data-leagues-team-5/blob/fred/PostWork-8/www/histograma_momio_minimo.png?raw=true")
                   
                 )
         ),
