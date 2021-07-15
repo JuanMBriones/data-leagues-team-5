@@ -1,0 +1,70 @@
+- Postwork Sesión 8
+	->
+		Los primeros gráficos de barras muestran el histograma del número
+		de goles por partido de cada equipo siendo locales o visitantes.
+		
+	->
+		Las gáficas del factor de ganancia muestran la evolución del capital
+		de una apuesta realizada a lo largo de 600 apuestas. La primera nos 
+		enseña el dinero que se apuesta cuando el momio (la posibilidad que un equipo 
+		gane, pierda o empate) es máximo y la otra cuando el momio al que
+		se apostó es el promedio.
+
+		A simple vista se puede notar que, al final de la temporada de apuestas
+		se obtuvo una pérdida cuando se apostó en el momio promedio, sin embargo,
+		existe una pequeña ganancia cuando se apostó en el momio máximo.
+		
+		Este es un problema muy importante cuando se habla de apuestas ya que 
+		el objetivo que se tiene es ganar lo más que se pueda. Sin embargo, vemos
+		que siguiendo la estrategia establecida no se logra una ganacia real ya que
+		es más probable que se entre en apuestas cuando los momios se encuentren 
+		cerca del promedio.
+
+		Habría que replantear la estrtegía.
+		
+		Veamos ahora la gráfíca del capital para el caso del las apuestas cuando el
+		momio es máximo, si consideramos que el capital inicial fue de 50000 y el 
+		final de 53090, quiere decir que se ganó un 6.18% de la inversión. Cabe notar
+		que el máximo de capital fué de 60750 y el mínimo de 30380 que corresponden a
+		una ganancia en porcentaje del 21.5% y -39.25%.
+
+		summary(g), donde g es el vector que aloja la evolución del capital en este caso.
+
+					     Num_Ap         Capital     
+					 Min.   :  1.0   Min.   :30380  
+					 1st Qu.:151.8   1st Qu.:40193  
+					 Median :302.5   Median :44500  
+					 Mean   :302.5   Mean   :44882  
+					 3rd Qu.:453.2   3rd Qu.:49650  
+					 Max.   :604.0   Max.   :60750  
+		
+		Siguiendo esta estrategia se ganaron 330 y se perdieron 273 veces, es decir,
+		un 54.72% y 45.28% respectivamente.
+
+		Pasemos a la gráfica del capital para el caso de las apuestas cuando el momio
+		es el promedio. Se puede observar que el capital final es menor al inicial,
+		esto quiere decir que no fué una buena idea tomar los momios promedio. La pérdida
+		al final del periodo de apuestas fué de un -39.28%.
+
+		summary(g), donde g es el vector que aloja la evolución del capital en este caso.
+		
+					     Num_Ap         Capital     
+					 Min.   :  1.0   Min.   :16530  
+					 1st Qu.:120.8   1st Qu.:24003  
+					 Median :240.5   Median :29580  
+					 Mean   :240.5   Mean   :29817  
+					 3rd Qu.:360.2   3rd Qu.:33383  
+					 Max.   :480.0   Max.   :52360  
+		
+		Siguiendo esta estrategia se ganaron 255 y se perdieron 224 veces, es decir,
+		un 53.23% y 46.77% respectivamente. En este caso, a diferencia del anterior,
+		el capital final fué menor al anterior, sin embargo el número de victorias fue
+		mayor al número de derrotas. Esto sucede ya que las ganancias pueden llegar a
+		ser menores a la cantidad apostada, ya que esta puede ser de apenas un porcentaje
+		de dependiendo de el valor del momio. Mientras que la cantidad perdida siempre es
+		fija.
+		
+
+	->
+		La siguente página muestran las probabilidades marginales y conjuntas de
+		anotar cierta cantidad de goles siendo local o visitante.						
