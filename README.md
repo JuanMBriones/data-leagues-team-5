@@ -11,6 +11,9 @@
 
 :space_invader: Juan Manuel Garcia Briones
 
+:space_invader: Fred Jiordi Miramontes Arias
+
+:space_invader: Ludim Sánchez
 
 <div align="center">
 	<br>
