@@ -72,7 +72,7 @@ places <- which(Ym[15]==format(scores$date, "%Y-%m"))
 ffe <- scores$date[max(places)] 
 
 train <- scores %>% filter(date <= ffe)
-test <- scores %>% filter(date > ffe)
+test <- scores %>% filter(date > ffe) # El test es más grande que el train
 
 head(train, n = 1); tail(train, n = 1)
 head(test, n = 1); tail(test, n = 1)
@@ -91,7 +91,7 @@ pas <- pred$scores$pred.away.score
 pht <- pred$scores$home.team 
 pat <- pred$scores$away.team 
 
-phs <- NULL; pas <- NULL; pht <- NULL; pat <- NULL
+phs <- NULL; pas <- NULL; pht <- NULL; pat <- NULL # no se que hace esto 
 for(i in 1:(length(unique(scores$date))-170)){
   ranks <- rank.teams(scores = scores, teams = teams, 
                       min.date = unique(scores$date)[i], 
@@ -151,6 +151,22 @@ p <- ggplot(g, aes(x=Num_Ap, y=Capital)) + geom_line( color="purple") + geom_poi
         axis.text.y = element_text(face = "bold", color="blue" , size = 10, angle = 25, hjust = 1))  # color, Ã¡ngulo y estilo de las abcisas y ordenadas 
 p
 
+hist(g$Capital)
+
+boxplot(g$Capital)
+
+dif_momio_max <- sign(diff(g$Capital))
+hist(dif_momio_max, xlab = "Número de fallos (-1) / Número de aciertos (1)", ylab = "Frecuencia")
+
+
+par(mfrow = c(1, 1))
+hist(g$Capital, probability = TRUE, col = "pink",
+      main = "")
+lines(density(g$Capital), col = "red", lwd = 2)
+par(new = TRUE)
+boxplot(g$Capital, horizontal = TRUE, axes = FALSE,
+        lwd = 2, col = rgb(0, 1, 1, alpha = 0.15))
+
 cap <- 50000; g <- NULL
 
 for(j in 1:length(phs)){
@@ -176,3 +192,18 @@ p <- ggplot(g, aes(x=Num_Ap, y=Capital)) + geom_line( color="purple") + geom_poi
   theme(axis.text.x = element_text(face = "bold", color="blue" , size = 10, angle = 25, hjust = 1),
         axis.text.y = element_text(face = "bold", color="blue" , size = 10, angle = 25, hjust = 1))  
 p
+
+hist(g$Capital)
+boxplot(g$Capital)
+
+par(mfrow = c(1, 1))
+hist(g$Capital, probability = TRUE, col = "pink",
+     main = "")
+lines(density(g$Capital), col = "red", lwd = 2)
+par(new = TRUE)
+boxplot(g$Capital, horizontal = TRUE, axes = FALSE,
+        lwd = 2, col = rgb(0, 1, 1, alpha = 0.15))
+
+dif_momio_max <- sign(diff(g$Capital))
+hist(dif_momio_max, xlab = "Número de fallos (-1) / Número de aciertos (1)", ylab = "Frecuencia")
+
