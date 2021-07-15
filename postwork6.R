@@ -11,7 +11,7 @@ library(lubridate)
 
 #' Exportamos los datos de la carpeta y lo almacenamos en un
 #' Data frame para poder cambiar el formato de fecha con mutate
-datos <- read.csv("https://raw.githubusercontent.com/JuanMBriones/data-leagues-team-5/Gabo/match.data.csv")
+datos <- read.csv("https://raw.githubusercontent.com/JuanMBriones/data-leagues-team-5/main/match.data.csv")
 
 head(datos)
 dim(datos)
