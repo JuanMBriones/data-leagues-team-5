@@ -1,7 +1,7 @@
 #' Se importanron los datos de la temporada 2019/2020 y se guardaron en la carpeta de Clase1
-#' Se almacena la información del CSV en la variable df_soccer.
+#' Se almacena la informaciÃ³n del CSV en la variable df_soccer.
 
-df_soccer <- read.csv("c:/Users/gabri/Documents/BEDU/FASE II/Clase/Clase1/SP1.csv")
+df_soccer <- read.csv("https://raw.githubusercontent.com/JuanMBriones/data-leagues-team-5/main/Datos/SP1.csv")
 
 #' Ahora guardamos unicamente las columnas que queremos y las almacenamos en un nuevo data frame
 df_goles <- data.frame(FTHG = df_soccer$FTHG, FTAG= df_soccer$FTAG)
